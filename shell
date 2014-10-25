@@ -1,0 +1,24 @@
+public class ShellSort {
+
+    public static void main(String args[]){
+       int arrayEntrada[]={321, 123, 213, 234, 1, 4, 5, 6}; //Este es el array de elementos que vamos a ordenar
+
+       shellSort(arrayEntrada); //llamada al metodo shellSort 
+       for (int i=0;i < arrayEntrada.length;i++){ //Este bucle imprime el contenido del array
+          System.out.print(arrayEntrada[i]+" ");
+       }//fin del for
+     }//fin del main
+     	
+    public static void shellSort( int a[ ]){
+        for( int gap = a.length / 2; gap > 0; gap = gap == 2 ? 1 : (int) ( gap / 2.2 ) ){
+            for( int i = gap; i < a.length; i++ ){
+                int tmp = a[ i ];
+                int j;
+                    for(j = i; j >= gap && tmp <  a[ j - gap ] ; j -= gap ){
+                      a[ j ] = a[ j - gap ];
+	              }
+                a[ j ] = tmp;
+            }
+        }
+     }
+ }//class ShellSort
